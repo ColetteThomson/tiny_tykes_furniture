@@ -15,7 +15,7 @@ SHEET = GSPREAD_CLIENT.open('tiny_tykes_furniture')
 
 class hotelmanage:
     def __init__(self, rt='', s=0, p=0, r=0, t=0, a=1000, name='', address='', cindate='', coutdate='', rno=1):
-        print("\n\n*****WELCOME TO HOTEl DE SUAREZ*****\n")
+        print("\n\n*****WELCOME TO THE HOTEL CALIFORNIA*****\n")
         self.rt = rt
         self.r = r
         self.t = t
@@ -27,13 +27,51 @@ class hotelmanage:
         self.cindate = cindate
         self.coutdate = coutdate
         self.rno = rno
+    """
+    def validate_string(values):
+        try:
+            if not isalpha():
+                raise ValueError(
+                    f"Please use letters of the alphabet, you entered{e}\n"
+                )
+        except ValueError as e:
+                print(f"Invalid data: {e}, please try again.\n")
+                return False
+        return True """
 
     def inputdata(self):
-        self.name = input("\nEnter your Fullname:")
-        self.address = input("\nEnter your address:")
-        self.cindate = input("\nEnter your check in date:")
-        self.coutdate = input("\nEnter your checkout date:")
+        while True:
+            #try:
+            self.name = input('\nEnter your full name:')
+            if self.name.isalpha():
+                print('Data is valid')
+                    # return self.name
+            break
+        else:
+            print('Please enter letters only.')
+                    #raise TypeError
+            #except TypeError:
+                #print('Please enter letters only.')
+                #eturn False
+                            
+            
+            self.address = input("\nEnter your location (city):")
+            self.cindate = input("\nEnter your check in date:")
+            self.coutdate = input("\nEnter your checkout date:")
+        
         print("Your room no.:", self.rno, "\n")
+    """
+    def validate_string(values):
+        try:
+            if not isalpha():
+                raise ValueError(
+                    f"Please use letters of the alphabet, you entered{e}\n"
+                )
+        except ValueError as e:
+                print(f"Invalid data: {e}, please try again.\n")
+                return False
+        return True
+        """
 
     def roomrent(self):
         print("We have the following rooms for you:-")

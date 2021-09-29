@@ -14,24 +14,20 @@ SHEET = GSPREAD_CLIENT.open('tiny_tykes_furniture')
 
 
 class hotel_manage:
-    def __init__(self, rt='', s=0, p=0, r=0, t=0, a=1000, name='', address='', checkin_date='', coutdate='', rno=1):
-        print("\n*****WELCOME TO THE HOTEL CALIFORNIA*****\n")
+    def __init__(self, rt='', s=0, r=0, a=1000, name='', address='', checkin_date='', coutdate='', rno=1):
+        print("\n*****WELCOME TO THE HOTEL CALIFORNIA*****")
         self.rt = rt
         self.r = r
-        self.t = t
-        self.p = p
         self.s = s
         self.a = a
         self.name = name
-        #self.address = address
         self.checkin_date = checkin_date
-        #self.coutdate = coutdate
         self.rno = rno
-    
+
     def input_name(self):
         while True:
             try:
-                self.name = input('\nEnter your surname:')
+                self.name = input('\nEnter your surname: \n')
                 if self.name.isalpha():
                     print('Data is valid')
                     #return self.name
@@ -42,36 +38,36 @@ class hotel_manage:
                 print('Please select "1" and re-enter with letters only.')
                 main()
                 #return False
-                            
+
     def input_date(self):
-        self.checkin_date = input("\nEnter your check in date: \n")
+        self.checkin_date = input('\nEnter your check in date: \n')
            #print("Your room no.:", self.rno, "\n")
-    
 
     def room_rent(self):
-        print('We have the following room types available:\n')
+        print('\nHotel Room Types Available')
+        print('--------------------------')
         print('1.  Family : £100 pn')
         print('2.  Twin Bed : £80 pps')
         print('3.  Double : £70 pps')
         print('4.  Single : £60 pp')
 
-        x = int(input('\nPlease enter the Number of your choice (example: 1): \n'))
-        n = int(input('Please enter Number of nights you would like to stay with us? (example: 2): \n'))
+        x = int(input('\nPlease enter the Number of your required Room Type (example: 1): \n'))
+        n = int(input('\nPlease enter Number of nights you would like to stay with us? (example: 2): \n'))
 
         if (x == 1):
-            print('You have selected a Family room\n')
+            print('You have selected a FAMILY room\n')
             self.s = 100 * n
 
         elif (x == 2):
-            print('You have selected a Twin Bed room\n')
+            print('You have selected a TWIN BED room\n')
             self.s = 80 * n
 
         elif (x == 3):
-            print('You have selected a Double room\n')
+            print('You have selected a DOUBLE room\n')
             self.s = 70 * n
 
         elif (x == 4):
-            print('You have selected a Single room\n')
+            print('You have selected a SINGLE room\n')
             self.s = 60 * n
 
         else:
@@ -79,11 +75,13 @@ class hotel_manage:
             print('Your chosen room rent is =", self.s, "\n')
 
     def food_purchased(self):
-        print("*****RESTAURANT MENU*****")
-        print('1. Dinner : £40 pp\n', '2. Breakfast : £15 pp\n', '3. Lunch : £30 pp\n', '4. Exit from Menu\n')
+        print('\nMeal/s Options')
+        print('--------------')
+        print(' 1. Dinner : £40 pp\n', '2. Breakfast : £15 pp\n',
+              '3. Lunch : £30 pp\n', '4. EXIT from Restaurant Menu\n')
 
         while (1):
-            c = int(input('Enter the Menu number of your choice.: \n'))
+            c = int(input('Enter a number from the Restaurant Menu.\n Multiple items may be selected individually: \n'))
 
             if (c == 1):
                 d = int(input('For how many people (example: 2): \n'))
@@ -101,38 +99,36 @@ class hotel_manage:
                 break
 
             else:
-                print("You've Enter an Invalid Key")
-                print("Total food Cost=Rs", self.r, "\n")
+                print("You entered an invalid Key. Please try again")
 
     def show_final_bill(self):
-        print('******HOTEL CALIFORNIA BILL******')
-        print('Customer details: ')
-        print('Customer name:', self.name)
-        #print("Customer address:", self.address)
-        print('Check in date:', self.checkin_date)
-        #print("Check out date", self.coutdate)
-        print('Room no.', self.rno)
-        print('Your Room rent is:', self.s)
-        print('Your Food bill is:', self.r)
-        self.rt = self.s + self.t + self.p + self.r
-
-        #print('Your sub total Purchased is:', self.rt)
-        #print('Additional Service Charges is', self.a)
-        print('Your Final Bill cost is:', self.rt + self.a, '\n')
+        print('\n******HOTEL CALIFORNIA BILL******')
+        print('Customer Details: ')
+        print('Your Name:', self.name)
+        print('Your Check-in Date:', self.checkin_date)
+        print('Your Reservation Number: ', self.rno)
+        print('Your Room Cost: £', self.s)
+        print('Your Meal/s Cost: £', self.r)
+        self.rt = self.s + self.r
+        print('Your Total Final Bill (inc VAT): £', self.rt, '\n')
         self.rno += 1
+        print('*** We hope you enjoy your stay! ***')
+        print('Choose 5 to exit')
 
 
 def main():
     a = hotel_manage()
 
     while (1):
-        print("1.Enter Customer Data")
-        print("2.Calculate Room Rent")
-        print("3.Calculate Food Purchased")
-        print("4.Show total cost")
-        print("5.EXIT")
+        print('\nMAIN MENU')
+        print('---------')
+        print('1. Enter Customer Data')
+        print('2. Calculate Room Cost')
+        print('3. Calculate Meal/s Cost')
+        print('4. Show Final Bill')
+        print('5. EXIT')
 
-        b = int(input("\nEnter the number of your choice:"))
+        b = int(input('\nChoose a Menu Number (example: 1): \n'))
 
         if (b == 1):
             a.input_name()

@@ -13,16 +13,16 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('tiny_tykes_furniture')
 
 
-class hotel_manage:
-    def __init__(self, rt='', s=0, r=0, a=1000, name='', address='', checkin_date='', coutdate='', rno=1):
+class Hotel_booking:
+    def __init__(self, rt='', s=0, r=0, a=1000, name='', address='', check_in='', res_no=1):
         print("\n*****WELCOME TO THE HOTEL CALIFORNIA*****")
         self.rt = rt
         self.r = r
         self.s = s
         self.a = a
         self.name = name
-        self.checkin_date = checkin_date
-        self.rno = rno
+        self.check_in = check_in
+        self.res_no = res_no
 
     def input_name(self):
         while True:
@@ -30,17 +30,15 @@ class hotel_manage:
                 self.name = input('\nEnter your surname: \n')
                 if self.name.isalpha():
                     print('Data is valid')
-                    #return self.name
                     break
                 else:
                     raise TypeError
             except TypeError:
                 print('Please select "1" and re-enter with letters only.')
                 main()
-                #return False
 
     def input_date(self):
-        self.checkin_date = input('\nEnter your check in date: \n')
+        self.check_in = input('\nEnter your check in date: \n')
            #print("Your room no.:", self.rno, "\n")
 
     def room_rent(self):
@@ -105,19 +103,19 @@ class hotel_manage:
         print('\n******HOTEL CALIFORNIA BILL******')
         print('Customer Details: ')
         print('Your Name:', self.name)
-        print('Your Check-in Date:', self.checkin_date)
-        print('Your Reservation Number: ', self.rno)
+        print('Your Check-in Date:', self.check_in)
+        print('Your Reservation Number: ', self.res_no)
         print('Your Room Cost: £', self.s)
         print('Your Meal/s Cost: £', self.r)
         self.rt = self.s + self.r
         print('Your Total Final Bill (inc VAT): £', self.rt, '\n')
-        self.rno += 1
+        self.res_no += 1
         print('*** We hope you enjoy your stay! ***')
         print('Choose 5 to exit')
 
 
 def main():
-    a = hotel_manage()
+    a = Hotel_booking()
 
     while (1):
         print('\nMAIN MENU')
@@ -154,9 +152,10 @@ main()
         try:
             if not isalpha():
                 raise ValueError(
-                    f"Please use letters of the alphabet, you entered{e}\n"
+                    f"Please use numbers, you entered{e}\n"
                 )
         except ValueError as e:
                 print(f"Invalid data: {e}, please try again.\n")
                 return False
-        return True """
+        return True 
+        """

@@ -1,4 +1,5 @@
 import gspread
+from datetime import datetime
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -41,10 +42,16 @@ class Hotel_booking:
             except TypeError:
                 print('Please select "1" and re-enter with letters only.')
 
-
-    def input_date(self):
-        self.check_in = input('\nEnter your check in date: \n')
-        #user2 = int(input('\nEnter "2" to calculate room cost (example: 2): \n'))
+    def check_in_date(self):
+        try:
+            self.check_in = input('\nEnter your check in date (dd/mm/yyyy): \n')
+            if self.check_in != datetime.strptime(self.check_in, '%d/%m/%Y').strftime('%d/%m/%Y'):
+                raise ValueError
+            return True
+        except ValueError:
+            print('Invalid date. Please try again (dd/mm/yyyy):')
+            return False
+        
         return
 
     def room_rent(self):
@@ -131,7 +138,7 @@ def main():
         user = int(input('\nPress "1" to complete Guest Details (example: 1): \n'))
         if (user == 1):
             a.input_name()
-            a.input_date()
+            a.check_in_date()
         else:
             print('You must press "1" to continue.')
 
@@ -156,25 +163,6 @@ def main():
         user5 = int(input('\nPress "5" to EXIT (example: 5): \n'))
         if (user5 == 5):
             quit()
-    
-    """while (1):
-        b = user
-
-        if (b == 1):
-            a.input_name()
-            a.input_date()
-
-        if (b == 2):
-            a.room_rent()
-
-        if (b == 3):
-            a.food_purchased()
-
-        if (b == 4):
-            a.show_final_bill()
-
-        if (b == 5):
-            quit()"""
 
 
 main()
@@ -217,3 +205,4 @@ def input_message():
     print('4. Show Final Bill')
     print('5. EXIT')
     """
+

@@ -14,20 +14,8 @@ SHEET = GSPREAD_CLIENT.open('tiny_tykes_furniture')
 
 
 #self.res_no += 1
-print("*****WELCOME TO THE HOTEL CALIFORNIA*****")
+print("***WELCOME TO THE HOTEL CALIFORNIA***")
 print('*...welcome message...*')
-
-"""
-def input_message():
-    while True:
-        user = input('\nPress enter to continue: \n')
-        if user == "":
-            print('yes!!')
-            main()
-            break
-        else:
-            print('You must press enter to continue.')
-            """
 
 
 class Hotel_booking:
@@ -52,12 +40,12 @@ class Hotel_booking:
                     raise TypeError
             except TypeError:
                 print('Please select "1" and re-enter with letters only.')
-                main()
+
 
     def input_date(self):
         self.check_in = input('\nEnter your check in date: \n')
-        b = int(input('\nEnter "2" to calculate room cost (example: 2): \n'))
-        main()
+        #user2 = int(input('\nEnter "2" to calculate room cost (example: 2): \n'))
+        return
 
     def room_rent(self):
         print('\nHotel Room Types Available')
@@ -90,6 +78,8 @@ class Hotel_booking:
             print('Please select a room type')
             print('Your chosen room rent is =", self.s, "\n')
 
+        return
+
     def food_purchased(self):
         print('\nMeal/s Options')
         print('--------------')
@@ -117,6 +107,8 @@ class Hotel_booking:
             else:
                 print("You entered an invalid Key. Please try again")
 
+        return
+
     def show_final_bill(self):
         print('\n******HOTEL CALIFORNIA BILL******')
         print('Customer Details: ')
@@ -134,18 +126,38 @@ class Hotel_booking:
 
 def main():
     a = Hotel_booking()
-    
+
     while True:
-        user = input('\nPress enter to continue: \n')
-        if user == "":
-            print('yes!!')
+        user = int(input('\nPress "1" to complete Guest Details (example: 1): \n'))
+        if (user == 1):
             a.input_name()
             a.input_date()
-            break
         else:
-            print('You must press enter to continue.')
+            print('You must press "1" to continue.')
+
+        user2 = int(input('\nPress "2" to calculate Room Cost (example: 2): \n'))
+        if (user2 == 2):
+            a.room_rent()
+        else:
+            print('You must press "2" to continue.')
+
+        user3 = int(input('\nPress "3" to calculate Meal/s Cost (example: 3): \n'))
+        if (user3 == 3):
+            a.food_purchased()
+        else:
+            print('You must press "3" to continue.')
+
+        user4 = int(input('\nPress "4" to calculate Meal/s Cost (example: 4): \n'))
+        if (user4 == 4):
+            a.show_final_bill()
+        else:
+            print('You must press "4" to continue.')
+
+        user5 = int(input('\nPress "5" to EXIT (example: 5): \n'))
+        if (user5 == 5):
+            quit()
     
-    while (1):
+    """while (1):
         b = user
 
         if (b == 1):
@@ -162,7 +174,7 @@ def main():
             a.show_final_bill()
 
         if (b == 5):
-            quit()
+            quit()"""
 
 
 main()

@@ -13,9 +13,26 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('tiny_tykes_furniture')
 
 
+#self.res_no += 1
+print("*****WELCOME TO THE HOTEL CALIFORNIA*****")
+print('*...welcome message...*')
+
+"""
+def input_message():
+    while True:
+        user = input('\nPress enter to continue: \n')
+        if user == "":
+            print('yes!!')
+            main()
+            break
+        else:
+            print('You must press enter to continue.')
+            """
+
+
 class Hotel_booking:
     def __init__(self, rt='', s=0, r=0, a=1000, name='', address='', check_in='', res_no=1):
-        print("\n*****WELCOME TO THE HOTEL CALIFORNIA*****")
+        #print("\n*****WELCOME TO THE HOTEL CALIFORNIA*****")
         self.rt = rt
         self.r = r
         self.s = s
@@ -39,7 +56,8 @@ class Hotel_booking:
 
     def input_date(self):
         self.check_in = input('\nEnter your check in date: \n')
-           #print("Your room no.:", self.rno, "\n")
+        b = int(input('\nEnter "2" to calculate room cost (example: 2): \n'))
+        main()
 
     def room_rent(self):
         print('\nHotel Room Types Available')
@@ -109,24 +127,26 @@ class Hotel_booking:
         print('Your Meal/s Cost: £', self.r)
         self.rt = self.s + self.r
         print('Your Total Final Bill (inc VAT): £', self.rt, '\n')
-        self.res_no += 1
+        #self.res_no += 1
         print('*** We hope you enjoy your stay! ***')
         print('Choose 5 to exit')
 
 
 def main():
     a = Hotel_booking()
-
+    
+    while True:
+        user = input('\nPress enter to continue: \n')
+        if user == "":
+            print('yes!!')
+            a.input_name()
+            a.input_date()
+            break
+        else:
+            print('You must press enter to continue.')
+    
     while (1):
-        print('\nMAIN MENU')
-        print('---------')
-        print('1. Enter Customer Data')
-        print('2. Calculate Room Cost')
-        print('3. Calculate Meal/s Cost')
-        print('4. Show Final Bill')
-        print('5. EXIT')
-
-        b = int(input('\nChoose a Menu Number (example: 1): \n'))
+        b = user
 
         if (b == 1):
             a.input_name()
@@ -147,6 +167,22 @@ def main():
 
 main()
 
+
+"""
+def input_message():
+    while True:
+        user = input('\nPress enter to continue: \n')
+        if user == "":
+            print('yes!!')
+            main()
+            break
+        else:
+            print('You must press enter to continue.')
+"""
+
+
+
+
 """
     def validate_string(values):
         try:
@@ -159,3 +195,13 @@ main()
                 return False
         return True 
         """
+
+"""
+    print('\nMAIN MENU')
+    print('---------')
+    print('1. Enter Customer Data')
+    print('2. Calculate Room Cost')
+    print('3. Calculate Meal/s Cost')
+    print('4. Show Final Bill')
+    print('5. EXIT')
+    """

@@ -40,7 +40,7 @@ class Hotel_booking:
                 else:
                     raise TypeError
             except TypeError:
-                print('Invalid data. Please re-enter using letters only.')
+                print('Invalid data. Please re-enter using letters only.\n')
 
     def check_in_date(self):
         while True:
@@ -50,7 +50,7 @@ class Hotel_booking:
                     raise ValueError
                 return True
             except ValueError:
-                print('Invalid date. Please try again (dd/mm/yyyy):')
+                print('Invalid date. Please try again (dd/mm/yyyy):\n')
 
         return
 
@@ -64,26 +64,26 @@ class Hotel_booking:
 
         while True:
             try:
-                x = int(input('\nPlease enter the Number of your required Room Type (example: 1): \n'))
-                n = int(input('\nPlease enter Number of nights you would like to stay with us? (example: 2): \n'))
+                x = int(input('\nEnter the Number of your required Room Type (example: 1): \n'))
+                n = int(input('\nEnter Number of nights you wish to stay with us (example: 2): \n'))
                 
                 if (x == 1):
-                    print('You have selected a FAMILY room\n')
+                    print('Your choice: FAMILY room for ' + str(n) + ' night/s.\n')
                     self.s = 100 * n
                     return True
 
                 elif (x == 2):
-                    print('You have selected a TWIN BED room\n')
+                    print('Your choice: TWIN BED room for ' + str(n) + ' night/s.\n')
                     self.s = 80 * n
                     return True
 
                 elif (x == 3):
-                    print('You have selected a DOUBLE room\n')
+                    print('Your choice: DOUBLE room for ' + str(n) + ' night/s.\n')
                     self.s = 70 * n
                     return True
 
                 elif (x == 4):
-                    print('You have selected a SINGLE room\n')
+                    print('Your choice: SINGLE room for ' + str(n) + ' night/s.\n')
                     self.s = 60 * n
                     return True
 
@@ -91,10 +91,9 @@ class Hotel_booking:
                     raise ValueError
                 
             except ValueError:
-                print('Invalid data. Please try again')
+                print('Invalid data. Please try again\n')
         
         return
-        #print('Your chosen room rent is =', self.s, '\n')
 
     def food_purchased(self):
         print('\nMeal/s Options')
@@ -103,25 +102,29 @@ class Hotel_booking:
               '3. Lunch : £30 pp\n', '4. EXIT from Restaurant Menu\n')
 
         while (1):
-            c = int(input('Enter a number from the Restaurant Menu.\n Multiple items may be selected individually: \n'))
-
+            c = int(input('Enter a number.\nMultiple items may be selected individually: \n'))
+            
             if (c == 1):
                 d = int(input('For how many people (example: 2): \n'))
+                print('You have chosen: DINNER for ' + str(d) + '\n')
                 self.r = self.r + 40 * d
 
             elif (c == 2):
                 d = int(input('For how many people (example: 2): \n'))
+                print('You have chosen: BREAKFAST for ' + str(d) + '\n')
                 self.r = self.r + 15 * d
 
             elif (c == 3):
                 d = int(input('For how many people (example: 2): \n'))
+                print('You have chosen: LUNCH for ' + str(d) + '\n')
                 self.r = self.r + 30 * d
 
             elif (c == 4):
+                print('Exiting the restaurant menu...')
                 return
 
             else:
-                print("Invalid entry. Please try again")
+                print("Invalid entry. Please try again.\n")
 
         return
 
@@ -137,7 +140,7 @@ class Hotel_booking:
         print('Your Total Final Bill (inc VAT): £', self.rt, '\n')
         #self.res_no += 1
         print('NB: Should you wish to make any changes to')
-        print('your booking - please call us on 0090 1234567')
+        print('your booking - please call us on 0090-1234567')
         print('**** We hope you enjoy your stay! ****')
 
 

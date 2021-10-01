@@ -66,7 +66,7 @@ class Hotel_booking:
             try:
                 x = int(input('\nEnter the Number of your required Room Type (example: 1): \n'))
                 n = int(input('\nEnter Number of nights you wish to stay with us (example: 2): \n'))
-                
+
                 if (x == 1):
                     print('Your choice: FAMILY room for ' + str(n) + ' night/s.\n')
                     self.s = 100 * n
@@ -89,10 +89,10 @@ class Hotel_booking:
 
                 else:
                     raise ValueError
-                
+
             except ValueError:
                 print('Invalid data. Please try again\n')
-        
+
         return
 
     def food_purchased(self):
@@ -103,7 +103,7 @@ class Hotel_booking:
 
         while (1):
             c = int(input('Enter a number.\nMultiple items may be selected individually: \n'))
-            
+
             if (c == 1):
                 d = int(input('For how many people (example: 2): \n'))
                 print('You have chosen: DINNER for ' + str(d) + '\n')
@@ -148,73 +148,49 @@ def main():
     a = Hotel_booking()
 
     while True:
-        user1 = int(input('\nPress "1" to complete Guest Details (example: 1): \n'))
-        if (user1 == 1):
-            a.input_name()
-        else:
-            print('You must press "1" to continue.')
-    
-        user2 = int(input('\nPress "2" to complete Check-in Date (example: 2): \n'))
-        if (user2 == 2):
-            a.check_in_date()
-        else:
-            print('You must press "2" to continue.')
-    
-        user3 = int(input('\nPress "3" to calculate Room Cost (example: 3): \n'))
-        if (user3 == 3):
-            a.room_rent()
-        else:
-            print('You must press "3" to continue.')
-    
-        user4 = int(input('\nPress "4" to calculate Meal/s Cost (example: 4): \n'))
-        if (user4 == 4):
-            a.food_purchased()
-        else:
-            print('You must press "4" to continue.')
-    
-        user5 = int(input('\nPress "5" to show your Final Bill (example: 5): \n'))
-        if (user5 == 5):
-            a.show_final_bill()
-        else:
-            print('You must press "5" to continue.')
-    
-        user6 = int(input('\nPress "6" to EXIT (example: 6): \n'))
-        if (user6 == 6):
-            quit()
-        else:
-            quit()
+        try:
+            user1 = int(input('\nPress "1" to complete Guest Details (example: 1): \n'))
+            if (user1 == 1):
+                a.input_name()
+            else:
+                raise ValueError
+
+            user2 = int(input('\nPress "2" to complete Check-in Date (example: 2): \n'))
+            if (user2 == 2):
+                a.check_in_date()
+            else:
+                raise ValueError
+
+            user3 = int(input('\nPress "3" to calculate Room Cost (example: 3): \n'))
+            if (user3 == 3):
+                a.room_rent()
+            else:
+                raise ValueError
+
+            user4 = int(input('\nPress "4" to calculate Meal/s Cost (example: 4): \n'))
+            if (user4 == 4):
+                a.food_purchased()
+            else:
+                raise ValueError
+
+            user5 = int(input('\nPress "5" to show your Final Bill (example: 5): \n'))
+            if (user5 == 5):
+                a.show_final_bill()
+            else:
+                raise ValueError
+
+            user6 = int(input('\nPress "6" to EXIT (example: 6): \n'))
+            if (user6 == 6):
+                quit()
+            else:
+                quit()
+
+        except ValueError:
+            print('Invalid data. Please try again.')
 
 
 main()
 
-
-"""
-def input_message():
-    while True:
-        user = input('\nPress enter to continue: \n')
-        if user == "":
-            print('yes!!')
-            main()
-            break
-        else:
-            print('You must press enter to continue.')
-"""
-
-
-
-
-"""
-    def validate_string(values):
-        try:
-            if not isalpha():
-                raise ValueError(
-                    f"Please use numbers, you entered{e}\n"
-                )
-        except ValueError as e:
-                print(f"Invalid data: {e}, please try again.\n")
-                return False
-        return True 
-        """
 
 """
     print('\nMAIN MENU')
@@ -225,4 +201,3 @@ def input_message():
     print('4. Show Final Bill')
     print('5. EXIT')
     """
-

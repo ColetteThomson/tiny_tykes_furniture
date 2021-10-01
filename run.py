@@ -40,18 +40,18 @@ class Hotel_booking:
                 else:
                     raise TypeError
             except TypeError:
-                print('Please select "1" and re-enter with letters only.')
+                print('Invalid data. Please re-enter using letters only.')
 
     def check_in_date(self):
-        try:
-            self.check_in = input('\nEnter your check in date (dd/mm/yyyy): \n')
-            if self.check_in != datetime.strptime(self.check_in, '%d/%m/%Y').strftime('%d/%m/%Y'):
-                raise ValueError
-            return True
-        except ValueError:
-            print('Invalid date. Please try again (dd/mm/yyyy):')
-            return False
-        
+        while True:
+            try:
+                self.check_in = input('\nEnter your check in date (dd/mm/yyyy): \n')
+                if self.check_in != datetime.strptime(self.check_in, '%d/%m/%Y').strftime('%d/%m/%Y'):
+                    raise ValueError
+                return True
+            except ValueError:
+                print('Invalid date. Please try again (dd/mm/yyyy):')
+
         return
 
     def room_rent(self):
@@ -62,30 +62,39 @@ class Hotel_booking:
         print('3.  Double : £70 pps')
         print('4.  Single : £60 pp')
 
-        x = int(input('\nPlease enter the Number of your required Room Type (example: 1): \n'))
-        n = int(input('\nPlease enter Number of nights you would like to stay with us? (example: 2): \n'))
+        while True:
+            try:
+                x = int(input('\nPlease enter the Number of your required Room Type (example: 1): \n'))
+                n = int(input('\nPlease enter Number of nights you would like to stay with us? (example: 2): \n'))
+                
+                if (x == 1):
+                    print('You have selected a FAMILY room\n')
+                    self.s = 100 * n
+                    return True
 
-        if (x == 1):
-            print('You have selected a FAMILY room\n')
-            self.s = 100 * n
+                elif (x == 2):
+                    print('You have selected a TWIN BED room\n')
+                    self.s = 80 * n
+                    return True
 
-        elif (x == 2):
-            print('You have selected a TWIN BED room\n')
-            self.s = 80 * n
+                elif (x == 3):
+                    print('You have selected a DOUBLE room\n')
+                    self.s = 70 * n
+                    return True
 
-        elif (x == 3):
-            print('You have selected a DOUBLE room\n')
-            self.s = 70 * n
+                elif (x == 4):
+                    print('You have selected a SINGLE room\n')
+                    self.s = 60 * n
+                    return True
 
-        elif (x == 4):
-            print('You have selected a SINGLE room\n')
-            self.s = 60 * n
-
-        else:
-            print('Please select a room type')
-            print('Your chosen room rent is =", self.s, "\n')
-
+                else:
+                    raise ValueError
+                
+            except ValueError:
+                print('Invalid data. Please try again')
+        
         return
+        #print('Your chosen room rent is =', self.s, '\n')
 
     def food_purchased(self):
         print('\nMeal/s Options')
@@ -109,10 +118,10 @@ class Hotel_booking:
                 self.r = self.r + 30 * d
 
             elif (c == 4):
-                break
+                return
 
             else:
-                print("You entered an invalid Key. Please try again")
+                print("Invalid entry. Please try again")
 
         return
 
@@ -127,41 +136,49 @@ class Hotel_booking:
         self.rt = self.s + self.r
         print('Your Total Final Bill (inc VAT): £', self.rt, '\n')
         #self.res_no += 1
-        print('*** We hope you enjoy your stay! ***')
-        print('Choose 5 to exit')
+        print('NB: Should you wish to make any changes to')
+        print('your booking - please call us on 0090 1234567')
+        print('**** We hope you enjoy your stay! ****')
 
 
 def main():
     a = Hotel_booking()
 
     while True:
-        user = int(input('\nPress "1" to complete Guest Details (example: 1): \n'))
-        if (user == 1):
+        user1 = int(input('\nPress "1" to complete Guest Details (example: 1): \n'))
+        if (user1 == 1):
             a.input_name()
-            a.check_in_date()
         else:
             print('You must press "1" to continue.')
-
-        user2 = int(input('\nPress "2" to calculate Room Cost (example: 2): \n'))
+    
+        user2 = int(input('\nPress "2" to complete Check-in Date (example: 2): \n'))
         if (user2 == 2):
-            a.room_rent()
+            a.check_in_date()
         else:
             print('You must press "2" to continue.')
-
-        user3 = int(input('\nPress "3" to calculate Meal/s Cost (example: 3): \n'))
+    
+        user3 = int(input('\nPress "3" to calculate Room Cost (example: 3): \n'))
         if (user3 == 3):
-            a.food_purchased()
+            a.room_rent()
         else:
             print('You must press "3" to continue.')
-
+    
         user4 = int(input('\nPress "4" to calculate Meal/s Cost (example: 4): \n'))
         if (user4 == 4):
-            a.show_final_bill()
+            a.food_purchased()
         else:
             print('You must press "4" to continue.')
-
-        user5 = int(input('\nPress "5" to EXIT (example: 5): \n'))
+    
+        user5 = int(input('\nPress "5" to show your Final Bill (example: 5): \n'))
         if (user5 == 5):
+            a.show_final_bill()
+        else:
+            print('You must press "5" to continue.')
+    
+        user6 = int(input('\nPress "6" to EXIT (example: 6): \n'))
+        if (user6 == 6):
+            quit()
+        else:
             quit()
 
 

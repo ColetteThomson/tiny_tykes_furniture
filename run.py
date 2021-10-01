@@ -46,7 +46,7 @@ class Hotel_booking:
         while True:
             try:
                 self.check_in = input('\nEnter your check in date (dd/mm/yyyy): \n')
-                if self.check_in != datetime.strptime(self.check_in, '%d/%m/%Y').strftime('%d/%m/%Y'):
+                if datetime.strptime(self.check_in, '%d/%m/%Y').date() < datetime.now().date():
                     raise ValueError
                 return True
             except ValueError:
@@ -144,6 +144,10 @@ class Hotel_booking:
         print('**** We hope you enjoy your stay! ****')
 
 
+#res_no = 1
+#self.res_no = res_no + 1
+
+
 def main():
     a = Hotel_booking()
 
@@ -187,6 +191,7 @@ def main():
 
         except ValueError:
             print('Invalid data. Please try again.')
+
 
 
 main()

@@ -139,59 +139,37 @@ class Hotel_booking:
         self.rt = self.s + self.r
         print('Your Total Final Bill (inc VAT): £', self.rt, '\n')
         #self.res_no += 1
+        
+        res_no = 1
+        self.res_no = res_no + 1
+
+    def exit_message(self):
+        print('Thank you - your booking is now complete!')
         print('NB: Should you wish to make any changes to')
         print('your booking - please call us on 0090-1234567')
-        print('**** We hope you enjoy your stay! ****')
-
-
-#res_no = 1
-#self.res_no = res_no + 1
+        print('**** We hope you enjoy your stay! ****\n')
 
 
 def main():
     a = Hotel_booking()
 
-    while True:
-        try:
-            user1 = int(input('\nPress "1" to complete Guest Details (example: 1): \n'))
-            if (user1 == 1):
-                a.input_name()
+    actions = ['Press 1 \n', 'Press 2 \n', 'Press 3 \n', 'Press 4 \n', 'Press 5 \n', 'Press 6\n']
+    functions = [a.input_name, a.check_in_date, a.room_rent, a.food_purchased, a.show_final_bill, a.exit_message]
+ 
+    # iterate over the text
+    for index, value in enumerate(actions):
+ 
+        # dont break out of the action until its finished
+        while True:
+            user_input = input(value)
+ 
+            if user_input.isdigit() and int(user_input) == index + 1:
+                # checks have passed, call the function and then break out of loop
+                functions[index]()
+                break
             else:
-                raise ValueError
-
-            user2 = int(input('\nPress "2" to complete Check-in Date (example: 2): \n'))
-            if (user2 == 2):
-                a.check_in_date()
-            else:
-                raise ValueError
-
-            user3 = int(input('\nPress "3" to calculate Room Cost (example: 3): \n'))
-            if (user3 == 3):
-                a.room_rent()
-            else:
-                raise ValueError
-
-            user4 = int(input('\nPress "4" to calculate Meal/s Cost (example: 4): \n'))
-            if (user4 == 4):
-                a.food_purchased()
-            else:
-                raise ValueError
-
-            user5 = int(input('\nPress "5" to show your Final Bill (example: 5): \n'))
-            if (user5 == 5):
-                a.show_final_bill()
-            else:
-                raise ValueError
-
-            user6 = int(input('\nPress "6" to EXIT (example: 6): \n'))
-            if (user6 == 6):
-                quit()
-            else:
-                quit()
-
-        except ValueError:
-            print('Invalid data. Please try again.')
-
+                #ask for the same thing again
+                continue
 
 
 main()

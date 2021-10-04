@@ -1,31 +1,63 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hotel California Booking System
 
-Welcome ColetteThomson,
+## Purpose
+This command line based hotel booking system was created to enable guests to book and select their hotel requirements online, rather than have to phone the Hotel California.  
+This booking system is designed to be run through once, with the guest required to call the hotel should they wish to make any changes to their original online booking.
+Guests are prompted to enter their name, room type and meal choices and a total bill is displayed with all the guest's details and expected costs.  
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+The live project can be found [here](https://colettethomson.github.io/Fultum-Wiltshire-Charity/assets/index.html)
 
-## Reminders
+<< insert mockups >>
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## Features
 
-## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Data Model
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Testing
+Manual testing of this project included:
+* A run through of the entire system with correct user input to ensure all functionality was working as expected.
+Validation testing for entry of invalid input:
+* strings instead of numbers
+* numbers instead of strings
+* combinations of alphabet, special characters and numbers where alphabet letters were expected.
+* Attempting to 'ignore' steps in the booking process
+* Repeated invalid input 
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+### Bugs
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
+### Validator Testing
+* Python code was run through [PEP8online.com](http://pep8online.com/) with no errors returned.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+### Project Creation
+The following terminal commands were used during this project:
+* git add . - this command adds a change in the working directory to the staging area.
+* git commit -m "*message*" - this command details the change/s made in the 'message' section and then commits the changes to the local repository.
+* git push - this command is used to push all changes to the GitHub repository.
 
------
-Happy coding!
+## Deployment
+This project was deployed using Code Institute's mock terminal for Heroku.
+Steps for deployment:
+* Fork or clone this repository
+* Create a new Heroku app
+* Set the buildbacks to Python and NodeJS in that order
+* Link the Heroku app to the repository
+* Click on Deploy
+
+## Technologies
+* Python - for all code
+* Python library import: datetime
+* Google.oauth2.service_account for Credentials
+* Code Institute's Heroku terminal
+* [Git](https://git-scm.com/) - used as version control software to commit and push code to a GitHub repository where all source code is located.
+
+## Credits and References
+* Code Institute for the deployment terminal
+* The private collaboration and knowledge sharing SaaS platform [Stack Overflow](https://stackoverflow.com/) was an invaluable resource for general coding queries.
+* Code Institute tutor support
+
+
+
+

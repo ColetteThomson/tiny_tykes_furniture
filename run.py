@@ -36,7 +36,7 @@ class Hotel_booking:
     def input_surname(self):
         while True:
             try:
-                self.surname = input('\nEnter your Surname: \n')
+                self.surname = input('\nEnter your Surname:\n')
                 # Validation check - user to enter alphabet letters only
                 if self.surname.isalpha():
                     break
@@ -51,7 +51,7 @@ class Hotel_booking:
     def input_firstname(self):
         while True:
             try:
-                self.firstname = input('\nEnter your First Name: \n')
+                self.firstname = input('\nEnter your First Name:\n')
                 # Validation check - user to enter alphabet letters only
                 if self.firstname.isalpha():
                     # Greeting message to user
@@ -68,7 +68,7 @@ class Hotel_booking:
     def check_in_date(self):
         while True:
             try:
-                self.check_in = input('\nEnter your Check In Date (dd/mm/yyyy): \n')
+                self.check_in = input('\nEnter your Check In Date (dd/mm/yyyy):\n')
                 # Validation check for date format and future date
                 if datetime.strptime(self.check_in, '%d/%m/%Y').date() < datetime.now().date():
                     raise ValueError
@@ -91,8 +91,8 @@ class Hotel_booking:
 
         while True:
             try:
-                x = int(input('\nEnter the Number of your required Room Type (example: 1): \n'))
-                n = int(input('\nEnter Number of nights you wish to stay with us (example: 2): \n'))
+                x = int(input('\nEnter the Number of your required Room Type (example: 1):\n'))
+                n = int(input('\nEnter Number of nights you wish to stay with us (example: 2):\n'))
 
                 # Sum = room cost * number of nights
                 if (x == 1):
@@ -138,17 +138,17 @@ class Hotel_booking:
 
             # Sum = meal choice (eg: 1) * number of people (eg: 2)
             if (c == 1):
-                d = int(input('For how many people (example: 2): \n'))
+                d = int(input('For how many people (example: 2):\n'))
                 print('** Your choice: DINNER for ' + str(d) + '\n')
                 self.restaurant = self.restaurant + 40 * d
 
             elif (c == 2):
-                d = int(input('For how many people (example: 2): \n'))
+                d = int(input('For how many people (example: 2):\n'))
                 print('** Your choice: BREAKFAST for ' + str(d) + '\n')
                 self.restaurant = self.restaurant + 15 * d
 
             elif (c == 3):
-                d = int(input('For how many people (example: 2): \n'))
+                d = int(input('For how many people (example: 2):\n'))
                 print('** Your choice: LUNCH for ' + str(d) + '\n')
                 self.restaurant = self.restaurant + 30 * d
 

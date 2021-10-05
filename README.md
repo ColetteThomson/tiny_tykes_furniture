@@ -53,11 +53,10 @@ Steps for deployment:
 ## Technologies
 * Python - for all code
 * Python library import: datetime
-* Google.oauth2.service_account for Credentials
 * Code Institute's Heroku terminal
 * [Git](https://git-scm.com/) - used as version control software to commit and push code to a GitHub repository where all source code is located.
 
-## Credits and References
+## Credits
 * Code Institute for the deployment terminal
 * The private collaboration and knowledge sharing SaaS platform [Stack Overflow](https://stackoverflow.com/) was an invaluable resource for general coding queries.
 * Code Institute tutor support

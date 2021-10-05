@@ -10,7 +10,11 @@ The live project can be found [here](https://colettethomson.github.io/Fultum-Wil
 << insert mockups >>
 
 ## Features
-
+* A step-by-step booking process allowing the user to only enter relevant information - thereby minimising user input error.
+* Validation of entry implemented for all instances of user input.
+* **Hotel Room Types Available** section:  Room type (family / twin bed / double / single) is shown with the cost per person or per night.  The user is also prompted to to enter the number of nights they wish to stay at the hotel.  Their choice is printed to the console (for example:  'Your choice: Double room for 2 nights') as way of confirmation of their entry.
+* **Meal/s Options** section: Users can select one or more, or none of the meal/s options (dinner / breakfast / lunch) with the cost per person also shown.  The user is also prompted to to enter the number of people for each meal.  Their choice is printed to the console (for example: 'Your choice: Dinner for 2').
+* The **Hotel California Bill** section prints to the console a cost breakdown of the user's inputs.  The reservation is the user's first and last names.  The user's check-in date is displayed.  **Room Cost** is a sum of room type x number of nights.  **Meal/s Cost** is a sum of meal type x number of people.  The **Total Final Bill** is a sum of 'Room Cost' + 'Meal/s Cost'.
 
 ## Data Model
 

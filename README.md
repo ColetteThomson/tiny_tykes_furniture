@@ -26,6 +26,7 @@ Validation testing for entry of invalid input:
 * strings instead of numbers
 * numbers instead of strings
 * combinations of alphabet, special characters and numbers where alphabet letters were expected.
+* Invalid date formats and dates that were in the past.
 * Attempting to 'ignore' steps in the booking process
 * Repeated invalid input 
 

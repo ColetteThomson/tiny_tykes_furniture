@@ -16,6 +16,9 @@ The live project can be found [here](https://colettethomson.github.io/Fultum-Wil
 * **Meal/s Options** section: Users can select one or more, or none of the meal/s options (dinner / breakfast / lunch) with the cost per person also shown.  The user is also prompted to to enter the number of people for each meal.  Their choice is printed to the console (for example: 'Your choice: Dinner for 2').
 * The **Hotel California Bill** section prints to the console a cost breakdown of the user's inputs.  The reservation is the user's first and last names.  The user's check-in date is displayed.  **Room Cost** is a sum of room type x number of nights.  **Meal/s Cost** is a sum of meal type x number of people.  The **Total Final Bill** is a sum of 'Room Cost' + 'Meal/s Cost'.
 
+## Future Features
+
+
 ## Data Model
 
 
@@ -30,8 +33,11 @@ Validation testing for entry of invalid input:
 * Attempting to 'ignore' steps in the booking process
 * Repeated invalid input 
 
-### Bugs
+### Solved Bugs
+* The function 'input_surname' occasionally doesn't accept correct input. This irregular bug appears to have been resolved through the adding of a 'return'.  This ensures a return to the Main calling function.
 
+### Unsolved Bugs
+* None found
 
 ### Validator Testing
 * Python code was run through [PEP8online.com](http://pep8online.com/) with no errors returned.

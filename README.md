@@ -17,7 +17,7 @@ The live project can be found [here](https://colettethomson.github.io/Fultum-Wil
 * The **Hotel California Bill** section prints to the console a cost breakdown of the user's inputs.  The reservation is the user's first and last names.  The user's check-in date is displayed.  **Room Cost** is a sum of room type x number of nights.  **Meal/s Cost** is a sum of meal type x number of people.  The **Total Final Bill** is a sum of 'Room Cost' + 'Meal/s Cost'.
 
 ## Future Features
-
+bbb
 
 ## Data Model
 
